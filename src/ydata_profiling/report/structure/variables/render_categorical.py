@@ -127,7 +127,7 @@ def render_categorical_unicode(
             n=_get_n(summary["category_alias_counts"]),
             max_number_to_print=n_freq_table_max,
         ),
-        name="Most occurring categories",
+        name="Categorías con mayor ocurrencia",
         anchor_id=f"{varid}category_long_values",
         redact=False,
     )

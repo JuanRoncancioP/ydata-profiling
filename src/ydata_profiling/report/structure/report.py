@@ -369,7 +369,7 @@ def get_report_structure(config: Settings, summary: BaseDescription) -> Root:
             Container(
                 get_dataset_items(config, summary, alerts),
                 sequence_type="tabs",
-                name="Overview",
+                name="Descripción General de Variables",
                 anchor_id="overview",
             ),
         ]
@@ -413,7 +413,7 @@ def get_report_structure(config: Settings, summary: BaseDescription) -> Root:
                 Container(
                     missing_items,
                     sequence_type="tabs",
-                    name="Missing values",
+                    name="Valores Faltantes",
                     anchor_id="missing",
                 )
             )
