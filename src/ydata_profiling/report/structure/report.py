@@ -409,25 +409,27 @@ def get_report_structure(config: Settings, summary: BaseDescription) -> Root:
 
         missing_items = get_missing_items(config, summary)
         if len(missing_items) > 0:
-            section_items.append(
-                Container(
-                    missing_items,
-                    sequence_type="tabs",
-                    name="Valores Faltantes",
-                    anchor_id="missing",
-                )
-            )
+            pass
+            # section_items.append(
+            #     Container(
+            #         missing_items,
+            #         sequence_type="tabs",
+            #         name="Valores Faltantes",
+            #         anchor_id="missing",
+            #     )
+            # )
 
         sample_items = get_sample_items(config, summary.sample)
         if len(sample_items) > 0:
-            section_items.append(
-                Container(
-                    items=sample_items,
-                    sequence_type="tabs",
-                    name="Sample",
-                    anchor_id="sample",
-                )
-            )
+            pass
+            # section_items.append(
+            #     Container(
+            #         items=sample_items,
+            #         sequence_type="tabs",
+            #         name="Sample",
+            #         anchor_id="sample",
+            #     )
+            # )
 
         duplicate_items = get_duplicates_items(config, summary.duplicates)
         if len(duplicate_items) > 0:

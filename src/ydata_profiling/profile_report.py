@@ -439,8 +439,8 @@ class ProfileReport(SerializeReport, ExpectationsReport):
                     return encode_it(o.to_dict(orient="records"))
                 elif isinstance(o, np.ndarray):
                     return encode_it(o.tolist())
-                elif isinstance(o, Sample):
-                    return encode_it(o.dict())
+                # elif isinstance(o, Sample):
+                #     return encode_it(o.dict())
                 elif isinstance(o, np.generic):
                     return o.item()
                 else:

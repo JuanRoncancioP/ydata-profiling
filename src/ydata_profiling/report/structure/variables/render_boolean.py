@@ -37,27 +37,27 @@ def render_boolean(config: Settings, summary: dict) -> dict:
     table = Table(
         [
             {
-                "name": "Distinct",
+                "name": "Valores diferentes",
                 "value": fmt(summary["n_distinct"]),
                 "alert": "n_distinct" in summary["alert_fields"],
             },
             {
-                "name": "Distinct (%)",
+                "name": "Valores diferentes (%)",
                 "value": fmt_percent(summary["p_distinct"]),
                 "alert": "p_distinct" in summary["alert_fields"],
             },
             {
-                "name": "Missing",
+                "name": "Valores perdidos",
                 "value": fmt(summary["n_missing"]),
                 "alert": "n_missing" in summary["alert_fields"],
             },
             {
-                "name": "Missing (%)",
+                "name": "Valores perdidos (%)",
                 "value": fmt_percent(summary["p_missing"]),
                 "alert": "p_missing" in summary["alert_fields"],
             },
             {
-                "name": "Memory size",
+                "name": "Tamaño en memoria",
                 "value": fmt_bytesize(summary["memory_size"]),
                 "alert": False,
             },

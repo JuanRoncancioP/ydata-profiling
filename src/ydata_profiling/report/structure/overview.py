@@ -26,19 +26,19 @@ from ydata_profiling.visualisation.plot import plot_overview_timeseries
 def get_dataset_overview(config: Settings, summary: BaseDescription) -> Renderable:
     table_metrics = [
         {
-            "name": "Number of variables",
+            "name": "Número de variables",
             "value": fmt_number(summary.table["n_var"]),
         },
         {
-            "name": "Number of observations",
+            "name": "Número de observaciones",
             "value": fmt_number(summary.table["n"]),
         },
         {
-            "name": "Missing cells",
+            "name": "Celdas faltantes",
             "value": fmt_number(summary.table["n_cells_missing"]),
         },
         {
-            "name": "Missing cells (%)",
+            "name": "Celdas faltantes (%)",
             "value": fmt_percent(summary.table["p_cells_missing"]),
         },
     ]
@@ -46,11 +46,11 @@ def get_dataset_overview(config: Settings, summary: BaseDescription) -> Renderab
         table_metrics.extend(
             [
                 {
-                    "name": "Duplicate rows",
+                    "name": "Filas duplicadas",
                     "value": fmt_number(summary.table["n_duplicates"]),
                 },
                 {
-                    "name": "Duplicate rows (%)",
+                    "name": "Filas duplicadas (%)",
                     "value": fmt_percent(summary.table["p_duplicates"]),
                 },
             ]
@@ -59,18 +59,18 @@ def get_dataset_overview(config: Settings, summary: BaseDescription) -> Renderab
         table_metrics.extend(
             [
                 {
-                    "name": "Total size in memory",
+                    "name": "Tamaño total en memoria",
                     "value": fmt_bytesize(summary.table["memory_size"]),
                 },
                 {
-                    "name": "Average record size in memory",
+                    "name": "Tamaño Promedio de registro en memory",
                     "value": fmt_bytesize(summary.table["record_size"]),
                 },
             ]
         )
 
     dataset_info = Table(
-        table_metrics, name="Dataset statistics", style=config.html.style
+        table_metrics, name="Estadísticas del Dataset", style=config.html.style
     )
 
     dataset_types = Table(
@@ -88,7 +88,7 @@ def get_dataset_overview(config: Settings, summary: BaseDescription) -> Renderab
     return Container(
         [dataset_info, dataset_types],
         anchor_id="dataset_overview",
-        name="Overview",
+        name="Descripción general",
         sequence_type="grid",
     )
 
@@ -175,14 +175,14 @@ def get_dataset_reproduction(config: Settings, summary: BaseDescription) -> Rend
             {"name": "Software version", "value": fmt_version(version)},
             {"name": "Download configuration", "value": fmt_config(config_file)},
         ],
-        name="Reproduction",
+        name="Reproducción",
         anchor_id="overview_reproduction",
         style=config.html.style,
     )
 
     return Container(
         [reproduction_table],
-        name="Reproduction",
+        name="Reproducción",
         anchor_id="reproduction",
         sequence_type="grid",
     )
@@ -205,7 +205,7 @@ def get_dataset_column_definitions(config: Settings, definitions: dict) -> Conta
                 {"name": column, "value": fmt(value)}
                 for column, value in definitions.items()
             ],
-            name="Variable descriptions",
+            name="Descripciones de Variable",
             anchor_id="variable_definition_table",
             style=config.html.style,
         )

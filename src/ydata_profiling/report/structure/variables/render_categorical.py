@@ -32,7 +32,7 @@ def render_categorical_frequency(
     frequency_table = Table(
         [
             {
-                "name": "Unique",
+                "name": "Valores Unicos",
                 "value": fmt_number(summary["n_unique"]),
                 "hint": help(
                     "The number of unique values (all values that occur exactly once in the dataset)."
@@ -40,12 +40,12 @@ def render_categorical_frequency(
                 "alert": "n_unique" in summary["alert_fields"],
             },
             {
-                "name": "Unique (%)",
+                "name": "Valores Unicos (%)",
                 "value": fmt_percent(summary["p_unique"]),
                 "alert": "p_unique" in summary["alert_fields"],
             },
         ],
-        name="Unique",
+        name="Valores Unicos",
         anchor_id=f"{varid}_unique_stats",
         style=config.html.style,
     )
@@ -505,7 +505,7 @@ def render_categorical(config: Settings, summary: dict) -> dict:
     bottom_items = [
         Container(
             overview_items,
-            name="Overview",
+            name="Descripción general",
             anchor_id=f"{varid}overview",
             sequence_type="batch_grid",
             batch_size=len(overview_items),
@@ -513,7 +513,7 @@ def render_categorical(config: Settings, summary: dict) -> dict:
         ),
         Container(
             string_items,
-            name="Categories",
+            name="Categorías",
             anchor_id=f"{varid}string",
             sequence_type="named_list"
             if len(config.html.style._labels) > 1
@@ -532,7 +532,7 @@ def render_categorical(config: Settings, summary: dict) -> dict:
 
         fqwo = FrequencyTable(
             woc,
-            name="Common words",
+            name="Palabras comunes",
             anchor_id=f"{varid}cwo",
             redact=config.vars.cat.redact,
         )
@@ -540,7 +540,7 @@ def render_categorical(config: Settings, summary: dict) -> dict:
         bottom_items.append(
             Container(
                 [fqwo],
-                name="Words",
+                name="Palabras",
                 anchor_id=f"{varid}word",
                 sequence_type="grid",
             )
@@ -551,7 +551,7 @@ def render_categorical(config: Settings, summary: dict) -> dict:
         bottom_items.append(
             Container(
                 [unitab],
-                name="Characters",
+                name="Caracteres",
                 anchor_id=f"{varid}characters",
                 sequence_type="grid",
             )
